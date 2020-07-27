@@ -1,0 +1,67 @@
+{% block _recipe_steps_widget %}
+
+{{form_widget(form)}}
+
+<input type="hidden" id="widgets-counter" value="0">
+<div class="form-group">
+    <button type="button" id="add-step" class="btn delicious-btn">Ajouter une étape</button>
+</div>
+{% endblock %}
+
+{% block _recipe_steps_entry_row %}
+{{form_widget(form)}}
+{% endblock %}
+
+{% block _recipe_steps_entry_widget %}
+<div class="form-group mt-2 " id="block_{{id}}">
+    <div class="row">
+        <div class="col-11">
+            {{form_widget(form.instruction, {'attr': {'class': 'form-control'}})}}
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-danger" data-action="delete" data-target="#block_{{id}}">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{#---------------------------------------------------------------#}
+
+{% block _recipe_ingredients_widget %}
+
+{{form_widget(form)}}
+<input type="hidden" id="widgets-counter-ingredients" value="0">
+<div class="form-group mt-3">
+    <button type="button" id="add-ingredient" class="btn delicious-btn">Ajouter un ingrédient</button>
+</div>
+{% endblock %}
+
+{% block _recipe_ingredients_entry_row %}
+{{form_widget(form)}}
+{% endblock %}
+
+{% block _recipe_ingredients_entry_widget %}
+<div class="form-group mt-3" id="block_{{id}}">
+    <div class="row">
+            <div class="col-3">
+                
+                {{form_widget(form.quantity, {'attr': {'class': 'form-control'}})}}
+            </div>
+            <div class="col-3">
+                
+                {{form_widget(form.unit, {'attr': {'class': 'custom-select'}})}}
+            </div>
+            <div class="col">
+                
+                {{form_widget(form.name, {'attr': {'class': 'form-control'}})}}
+            </div>
+            <div class="col-1 my-auto">
+                <button type="button" class="btn btn-danger" data-action="delete" data-target="#block_{{id}}">X</button>
+            </div>
+    </div>
+
+</div>
+{% endblock %}

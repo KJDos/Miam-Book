@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'recipe/_collection.html.twig' %}
+
+{% block title %}New Recipe{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ include('recipe/_form.html.twig') }}
+    </div>
+    <hr>
+    <a href="{{ path('recipe_index') }}">back to list</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('cropper') }}
+    {{ encore_entry_script_tags('handleCollections') }}
+{% endblock %}

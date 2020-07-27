@@ -1,0 +1,74 @@
+{{ form_start(form) }}
+    <fieldset class="form-border">
+        <legend class="form-border font-dancing">Informations générales</legend>
+            <div class="control-group">
+                <div class="form-group">
+                    {{form_label(form.name)}}
+                    {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{form_label(form.part)}}
+                        {{ form_widget(form.part, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    <div class="col">
+                        {{form_label(form.category)}}
+                        {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="container">
+        <fieldset class="form-border">
+            <legend class="form-border font-dancing">Les ingrédients</legend>
+            <div class="control-group">
+                <div class="controls bootstrap-timepicker">
+                    <div class="form-group">
+                        {{ form_widget(form.ingredients) }}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+
+
+    <div class="container">
+        <fieldset class="form-border">
+            <legend class="form-border font-dancing">La préparation</legend>
+            <div class="control-group">
+                <div class="controls bootstrap-timepicker">
+                    <div class="form-group">
+                        {{ form_widget(form.steps) }}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+<h4 class="font-dancing display-4 text-center">La photo</h4>
+<div class="form-group">
+    {{ form_widget(form.imageFile) }}
+</div>
+
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+
+    <fieldset class="form-border">
+        <legend class="form-border font-dancing">Start Time !</legend>
+        <div class="control-group">
+            <label class="control-label input-label" for="startTime">Start :</label>
+            <div class="controls bootstrap-timepicker">
+                <input type="text" class="datetime form-control" id="startTime" name="startTime" placeholder="Start Time" />
+                <i class="icon-time"></i>
+            </div>
+        </div>
+    </fieldset>
+
+{{ form_end(form) }}
