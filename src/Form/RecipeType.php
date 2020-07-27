@@ -65,7 +65,7 @@ class RecipeType extends ApplicationType
                 'preview_height' => 245,
                 'max_width' => 1000,
                 'max_height' => 457,
-                'enable_remote' => true,
+                'enable_remote' => false,
                 'upload_mimetype' => 'image/jpeg',
                 'upload_quality' => 1,
                 'cropper_options' => [

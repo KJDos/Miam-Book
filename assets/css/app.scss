@@ -5,8 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-$vertC: #40ba37;
-$vertF: #1c8314;
+$color-1: #40ba37;
+$color-2: #1c8314;
+//$color-1: #9b4ec7;
+//$color-2: #652d85;
 $gris: rgb(138, 138, 138);
 $font-dancing : 'Dancing Script', cursive;
 $font-pt : 'PT Sans',sans-serif;
@@ -101,7 +103,7 @@ a:hover{
     height: 60px;
     color: #ffffff;
     border: none;
-    border-left: 3px solid #1c8314;
+    border-left: 3px solid $color-2;
     border-radius: 25px;
     padding: 0 30px;
     font-size: 16px;
@@ -110,7 +112,7 @@ a:hover{
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     text-transform: capitalize;
-    background-color: #40ba37;
+    background-color: $color-1;
 }
 
 .delicious-btn.active,
@@ -119,39 +121,39 @@ a:hover{
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
-    background-color: #1c8314;
-    border-color: #40ba37;
+    background-color: $color-2;
+    border-color: $color-1;
 }
 
 .delicious-btn.btn-2 {
-    background-color: #1c8314;
-    border-color: #40ba37;
+    background-color: $color-2;
+    border-color: $color-1;
 }
 
 .delicious-btn.btn-2.active,
 .delicious-btn.btn-2:hover,
 .delicious-btn.btn-2:focus {
-    background-color: #40ba37;
-    border-color: #1c8314;
+    background-color: $color-1;
+    border-color: $color-2;
 }
 
 .delicious-btn.btn-3 {
     background-color: #474747;
-    border-color: #1c8314;
+    border-color: $color-2;
 }
 
 .delicious-btn.btn-3.active,
 .delicious-btn.btn-3:hover,
 .delicious-btn.btn-3:focus {
-    background-color: #40ba37;
-    border-color: #1c8314;
+    background-color: $color-1;
+    border-color: $color-2;
 }
 
 .delicious-btn.btn-4 {
     background-color: transparent;
-    border: 3px solid #40ba37;
+    border: 3px solid $color-1;
     line-height: 53px;
-    color: #40ba37;
+    color: $color-1;
 }
 
 @media only screen and (max-width: 767px) {
@@ -166,7 +168,7 @@ a:hover{
 .delicious-btn.btn-4:focus {
     line-height: 53px;
     color: #ffffff;
-    background-color: #40ba37;
+    background-color: $color-1;
 }
 
 @media only screen and (max-width: 767px) {
@@ -209,7 +211,7 @@ a:hover{
     display: block;
     width: 0;
     height: 2px;
-    background: $vertC;
+    background: $color-1;
     transition: width .3s;
 }
 
@@ -221,7 +223,7 @@ a:hover{
 .account-dropdown,
 .account-dropdown:visited{
     color: #fff;
-    background-color: $vertC;
+    background-color: $color-1;
     padding: 6px;
     padding-right: 10px;
     border-radius: 15px;
@@ -233,7 +235,7 @@ a:hover{
 .account-dropdown:hover{
     color: #fff;
     text-decoration: none;
-    background-color: $vertF;
+    background-color: $color-2;
 
 }
 
@@ -332,18 +334,18 @@ a:hover{
             top: 0;
             left: 0;
             backface-visibility: hidden;
-            border-left: 3px solid $vertC;
+            border-left: 3px solid $color-1;
             border-radius: 25px;
         }
 
         &:after {
             content: attr(data-tg-on);
-            background:$vertF;
+            background:$color-2;
             transform: rotateY(-180deg);
         }
 
         &:before {
-            background: $vertF;
+            background: $color-2;
             content: attr(data-tg-off);
         }
 
@@ -360,8 +362,8 @@ a:hover{
         &:after {
             transform: rotateY(0);
             left: 0;
-            background: $vertC;
-            border-left: 3px solid $vertF;
+            background: $color-1;
+            border-left: 3px solid $color-2;
         }
 
         &:active:after {
