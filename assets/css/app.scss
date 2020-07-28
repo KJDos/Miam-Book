@@ -13,6 +13,19 @@ $gris: rgb(138, 138, 138);
 $font-dancing : 'Dancing Script', cursive;
 $font-pt : 'PT Sans',sans-serif;
 
+.btn-delete{
+    color: #fff;
+    background-color: #676767; 
+    &:hover{
+        color: #fff;
+        background-color: #4b2e2e;
+    }
+}
+
+.color-sombre{
+    color: #4e4e4e;
+}
+
 .instruction-text{
     color: $gris;
     margin-left: 30px;
@@ -435,8 +448,6 @@ fieldset.form-border {
 
 legend.form-border {
     width: inherit;
-    /* Or auto */
     padding: 0 10px;
-    /* To give a bit of padding on the left and right */
     border-bottom: none;
 }

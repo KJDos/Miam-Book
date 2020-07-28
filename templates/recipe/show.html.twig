@@ -4,19 +4,15 @@
 
 {% block body %}
 <div class="container">
+    <h1 class="font-dancing display-1 text-center color-sombre">{{recipe.name}}</h1>
     <img class="img-fluid main-img" src="/images/cover/{{recipe.imageName}}" alt="{{recipe.name}}">
     <section class="container container-small">
-            <div class="row">
-                <div class="col bd-r">
-                    
-                </div>
-                <div class="col"></div>
-            </div>
 
+        <hr>
         <div class="row justify-content-center">
                 <div class="col-12 col-lg-3 mt-3 mr-5">
                     <div class="col-12 text-center mb-4">
-                        <h4 class="article-title display-4">Ingrédients</h4>
+                        <h4 class="article-title display-4 color-sombre">Ingrédients</h4>
                     </div>
                     <ul class="list-group text-center">
                         {% for ingredient in recipe.ingredients %}
@@ -28,7 +24,7 @@
             <div class="col-md-12 col-lg-6 mt-3">
                 <div class="row article">
                     <div class="col-12 text-center mb-4">
-                        <h4 class="article-title display-4">Préparation</h4>
+                        <h4 class="article-title display-4 color-sombre">Préparation</h4>
                     </div>
                     {% for step in recipe.steps %}
                     <div class="col-12">

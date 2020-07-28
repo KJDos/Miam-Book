@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'recipe/_collection.html.twig' %}
 
-{% block title %}Edit Recipe{% endblock %}
+{% block title %}Modifier la recette{% endblock %}
 
 {% block body %}
-    <h1>Edit Recipe</h1>
 
     {{ include('recipe/_form.html.twig', {'button_label': 'Update'}) }}
 
