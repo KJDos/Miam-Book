@@ -18,9 +18,33 @@ $font-pt : 'PT Sans',sans-serif;
     background-color: #676767; 
     &:hover{
         color: #fff;
-        background-color: #4b2e2e;
+        background-color: #aa2020;
     }
 }
+
+#recipe_preparationTime_hour,
+#recipe_preparationTime_minute,
+#recipe_cookingTime_hour,
+#recipe_cookingTime_minute,
+#recipe_restTime_hour,
+#recipe_restTime_minute
+{
+    display: inline-block;
+    width:30%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
 
 .color-sombre{
     color: #4e4e4e;
@@ -110,6 +134,7 @@ a:hover{
 
 
 //btn
+
 .delicious-btn {
     display: inline-block;
     min-width: 160px;
@@ -419,9 +444,6 @@ a:hover{
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.custom-toggler.navbar-toggler {
-    border-color: rgb(255, 102, 203);
-}
 
 // Restart show
 
@@ -450,4 +472,48 @@ legend.form-border {
     width: inherit;
     padding: 0 10px;
     border-bottom: none;
+}
+
+input[type=text],
+input[type=number],
+input[type=time],
+.select-1,
+input[type=password],
+input[type=email]{
+    border-radius: 0;
+}
+
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=time]:focus,
+.select-1:focus,
+input[type=password]:focus,
+input[type=email]:focus
+{
+    box-shadow: none;
+    border-color: #ced4da;
+    border-left: 3px solid $color-1 ;
+}
+
+.recipe-data-item{
+
+    abbr[title] {
+        text-decoration: none;
+    }
+
+    .fa-user,
+    .fa-clock {
+        font-weight: bold;
+    }
+}
+
+
+.delicious-btn.btn-3 {
+    background-color: #474747;
+    border-color: #aa2020;
+}
+.delicious-btn.btn-3.active, .delicious-btn.btn-3:hover, .delicious-btn.btn-3:focus {
+    background-color: #aa2020;
+    border-color: #474747;
 }

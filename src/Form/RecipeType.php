@@ -8,10 +8,11 @@ use App\Form\ApplicationType;
 use Presta\ImageBundle\Form\Type\ImageType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class RecipeType extends ApplicationType
 {
@@ -79,6 +80,39 @@ class RecipeType extends ApplicationType
                     
                 ],
             ])
+            ->add(
+                'preparationTime',
+                TimeType::class,
+                [
+                    'required' => true,
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'widget' => 'single_text',
+                ]
+            )
+            ->add(
+                'cookingTime',
+                TimeType::class,
+                [
+                    'required' => false,
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'widget' => 'single_text',
+                ]
+            )
+            ->add(
+                'restTime',
+                TimeType::class,
+                [
+                    'required' => false,
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'widget' => 'single_text',
+                ]
+            )
         ;
     }
 

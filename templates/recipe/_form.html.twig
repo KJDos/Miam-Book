@@ -14,7 +14,24 @@
                         </div>
                         <div class="col">
                             {{form_label(form.category)}}
-                            {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_widget(form.category, { 'attr': {'class': 'form-control select-1'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            {{ form_label(form.preparationTime)}}
+                            <br>
+                            {{ form_widget(form.preparationTime) }}
+                        </div>
+                        <div class="col">
+                            {{ form_label(form.cookingTime)}}
+                            <br>
+                            {{ form_widget(form.cookingTime) }}
+                        </div>
+                        <div class="col">
+                            {{ form_label(form.restTime)}}
+                            <br>
+                            {{ form_widget(form.restTime) }}
                         </div>
                     </div>
                 </div>
@@ -65,7 +82,7 @@
     </div>
 
     <div class="container text-center">
-        <button class="btn delicious-btn col-6">{{ button_label|default('Save') }}</button>
+        <button class="btn delicious-btn col-6">{{ button_label|default('Enregistrer') }}</button>
     </div>
     
 

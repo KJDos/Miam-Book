@@ -87,6 +87,21 @@ class Recipe
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $preparationTime;
+
+    /**
+     * @ORM\Column(type="time", nullable=true)
+     */
+    private $cookingTime;
+
+    /**
+     * @ORM\Column(type="time", nullable=true)
+     */
+    private $restTime;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
@@ -267,5 +282,41 @@ class Recipe
     {
         $slugger = new Slugify();
         $this->slug = $slugger->slugify($this->name);
+    }
+
+    public function getPreparationTime(): ?\DateTimeInterface
+    {
+        return $this->preparationTime;
+    }
+
+    public function setPreparationTime(\DateTimeInterface $preparationTime): self
+    {
+        $this->preparationTime = $preparationTime;
+
+        return $this;
+    }
+
+    public function getCookingTime(): ?\DateTimeInterface
+    {
+        return $this->cookingTime;
+    }
+
+    public function setCookingTime(?\DateTimeInterface $cookingTime): self
+    {
+        $this->cookingTime = $cookingTime;
+
+        return $this;
+    }
+
+    public function getRestTime(): ?\DateTimeInterface
+    {
+        return $this->restTime;
+    }
+
+    public function setRestTime(?\DateTimeInterface $restTime): self
+    {
+        $this->restTime = $restTime;
+
+        return $this;
     }
 }

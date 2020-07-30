@@ -10,33 +10,11 @@
             <div class="row">
                 <!-- Top Catagory Area -->
                 {% for recipe in recipes %}
-                    {# A mettre dans une row #}
-                    <div class="col-12 col-lg-6">
-                        <div class="single-top-catagory ">
-                            <img class="vignette-index" src="/images/cover/{{recipe.imageName}}" alt="">
-                            <div class="top-cta-content ">
-                            
-                                    <h3 class="mb-5">{{recipe.name}}</h3>
-                                    {#}<h6>{{recipe.category}} pour {{recipe.part}}personne{% if recipe.part > 1 %}s{% endif %}</h6>{#}
-                                <div class="mb-5">
-                                    <a href="{{path("recipe_show", {slug: recipe.slug})}}" class="btn delicious-btn">Voir la recette</a>
-                                    {% if app.user and app.user == recipe.author %}
-                                    <a href="{{path("recipe_edit", {slug: recipe.slug})}}" class="ml-1 btn delicious-btn btn-4">Modifier</a>
-                                    {% endif %}
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
+                    {% include "elements/_cards.html.twig" %}
                 {% endfor %}
             </div>
         </div>
     </section>
 
-<div class="container">
-    <div class="row">
-
-    </div>
-</div>
 
 {% endblock %}

@@ -6,9 +6,40 @@
 <div class="container">
     <h1 class="font-dancing display-1 text-center color-sombre">{{recipe.name}}</h1>
     <img class="img-fluid main-img" src="/images/cover/{{recipe.imageName}}" alt="{{recipe.name}}">
+    <div class="row justify-content-center mt-3">
+        <div class="col text-center recipe-data-item">
+            <abbr title="Nombre de parts">
+                <i class="fas fa-utensils"></i> {{recipe.part}}
+            </abbr>
+        </div>
+        <div class="col text-center recipe-data-item">
+            <abbr title="Temps de préparation">
+                <i class="fas fa-mortar-pestle"></i> {{ recipe.preparationTime ? recipe.preparationTime|date('H:i') : '' }}
+            </abbr>
+        </div>
+        {% if recipe.cookingTime %}
+            <div class="col text-center recipe-data-item">
+                <abbr title="temps de cuisson">
+                    <i class="fas fa-fire-alt"></i> {{ recipe.cookingTime ? recipe.cookingTime|date('H:i') : '' }}
+                </abbr>
+            </div>
+        {% endif %}
+        {% if recipe.restTime %}
+            <div class="col text-center recipe-data-item">
+                <abbr title="temps de repos">
+                    <i class="far fa-clock"></i> {{ recipe.restTime ? recipe.restTime|date('H:i') : '' }}
+                </abbr>
+            </div>
+        {% endif %}
+        <div class="col text-center recipe-data-item">
+            <abbr title="Auteur">
+                <i class="far fa-user"></i> <a href="{{path("user_show", {slug: recipe.author.slug})}}">{{ recipe.author.pseudo }}</a>
+            </abbr>
+        </div>
+        
+    </div>
+    <hr>
     <section class="container container-small">
-
-        <hr>
         <div class="row justify-content-center">
                 <div class="col-12 col-lg-3 mt-3 mr-5">
                     <div class="col-12 text-center mb-4">
@@ -39,12 +70,20 @@
 
     </section>
 
+
+    <hr>
+    <div class="text-center">
+        <div class="row">
+            {% if app.user and app.user == recipe.author %}
+                <div class="col">
+                    <a href="{{path("recipe_edit", {slug: recipe.slug})}}" class="ml-1 btn delicious-btn btn-4">Modifier</a>
+                </div>
+                <div class="col">
+                    {{ include('recipe/_delete_form.html.twig') }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
 </div><!--container-->
-    <hr class="mt-5 pt-5">
-    <a href="{{ path('recipe_index') }}">back to list</a>
-
-    <a href="{{ path('recipe_edit', {'slug': recipe.slug}) }}">edit</a>
-
-    {{ include('recipe/_delete_form.html.twig') }}
-
 {% endblock %}

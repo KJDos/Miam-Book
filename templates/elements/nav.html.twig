@@ -42,17 +42,56 @@
             <li class="nav-item dropdown">
                 <a class="account-dropdown" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                     <span class="user-icon">
-                        <i class="far fa-user-circle"></i> Mon compte
+                        {% if app.user %}
+                            <i class="far fa-user-circle"></i> {{app.user.pseudo}}
+                        {% else %}
+                            <i class="far fa-user-circle"></i> Mon compte
+                        {% endif %}
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    {% if app.user %}
+                        <a class="dropdown-item" href="{{path("user_show", {slug: app.user.slug})}}">Mon profile</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{path("app_logout")}}">Se déconnecter</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{{path("app_register")}}">S'inscrire</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{path("app_login")}}">Se connecter</a>
+                    {% endif %}
+
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+
+
+{#}
+
+{% if app.user %}
+{% else %}
+{% endif %}
+
+{% if app.user %}
+<li>
+    <a href="#">{{app.user.pseudo}}</a>
+    <ul class="dropdown">
+        <li><a href="{{path("account_profil", {slug: app.user.slug})}}">Mon
+                profile</a></li>
+        <li><a href="#">Mon compte</a></li>
+        <li><a href="{{path("app_logout")}}">Se deconnecter</a></li>
+    </ul>
+</li>
+{% else %}
+<li>
+    <a href="{{path("security_register")}}">S'inscrire</a>
+</li>/
+<li>
+    <a href="{{path("app_login")}}">Se connecter</a>
+</li>
+{% endif %}
+{#}

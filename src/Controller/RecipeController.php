@@ -76,7 +76,7 @@ class RecipeController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="recipe_edit", methods={"GET","POST"})
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_USER') and user === recipe.getAuthor()")
      */
     public function edit(Request $request, Recipe $recipe): Response
     {
@@ -109,6 +109,7 @@ class RecipeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="recipe_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_USER') and user === recipe.getAuthor()")
      */
     public function delete(Request $request, Recipe $recipe): Response
     {
