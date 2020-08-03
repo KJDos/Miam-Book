@@ -9,13 +9,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home_index")
+     * @Route("/{page<\d+>?1}", name="home_index")
      */
-    public function index(RecipeRepository $repo, $page = 1)
+    public function index(RecipeRepository $repo, $page)
     {
+        $limit = 2;
+
+        $start = $page * $limit - $limit;
+
+        $total = count($repo->findAll());
+
+        $pages = ceil($total / $limit);
 
         return $this->render('home/index.html.twig', [
-            'recipes' => $repo->findAll()
+            'recipes' => $repo->findBy([], [], $limit, $start),
+            'pages' => $pages,
+            'page' => $page
         ]);
     }
 }

@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/recipe")
+ * @Route("/recette")
  */
 class RecipeController extends AbstractController
 {
@@ -121,4 +121,5 @@ class RecipeController extends AbstractController
 
         return $this->redirectToRoute('recipe_index');
     }
+
 }

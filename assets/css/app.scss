@@ -7,7 +7,7 @@
 
 $color-1: #40ba37;
 $color-2: #1c8314;
-//$color-1: #9b4ec7;
+//$color-1: #b59dc7;
 //$color-2: #652d85;
 $gris: rgb(138, 138, 138);
 $font-dancing : 'Dancing Script', cursive;
@@ -20,6 +20,11 @@ $font-pt : 'PT Sans',sans-serif;
         color: #fff;
         background-color: #aa2020;
     }
+}
+
+::selection {
+    color: #fff;
+    background: $color-1;
 }
 
 #recipe_preparationTime_hour,
@@ -69,6 +74,7 @@ a:hover{
 
 //cards
 .single-top-catagory {
+    border-radius: 25px;
     position: relative;
     z-index: 2;
     margin-bottom: 80px;
@@ -142,7 +148,7 @@ a:hover{
     color: #ffffff;
     border: none;
     border-left: 3px solid $color-2;
-    border-radius: 25px;
+    border-radius: 12px;
     padding: 0 30px;
     font-size: 16px;
     line-height: 58px;
@@ -264,7 +270,8 @@ a:hover{
     background-color: $color-1;
     padding: 6px;
     padding-right: 10px;
-    border-radius: 15px;
+    padding-bottom: 2px;
+    border-radius: 10px;
     .fa-user-circle{
         font-size: 1.2em;
     }
@@ -298,6 +305,7 @@ a:hover{
 
 .main-img{
     width: 100%;
+    border-radius:25px;
 }
 
 
@@ -373,7 +381,7 @@ a:hover{
             left: 0;
             backface-visibility: hidden;
             border-left: 3px solid $color-1;
-            border-radius: 25px;
+            border-radius: 12px;
         }
 
         &:after {
@@ -415,14 +423,6 @@ a:hover{
     font-family: $font-dancing;
 }
 
-.xx{
-    display: grid;
-    width:100%;
-    grid-template-columns: 10% 90%;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-}
 
 .deux{
     color: rgb(167, 167, 167);
@@ -516,4 +516,72 @@ input[type=email]:focus
 .delicious-btn.btn-3.active, .delicious-btn.btn-3:hover, .delicious-btn.btn-3:focus {
     background-color: #aa2020;
     border-color: #474747;
+}
+
+.page-item.active .page-link {
+    background-color: $color-1;
+    border: 1px solid $color-1;
+}
+.page-link{
+    color: $color-1;
+    &:hover{
+        color: $color-1;
+    }
+    &:active,
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+.btn:active{
+    box-shadow: none;
+}
+
+.xx{
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 25px;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    //-webkit-box-shadow: 0px 0px 0px 0px #000;
+    //box-shadow: 0px 0px 0px 0px #000;
+}
+
+.yy {
+    width: inherit;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+//.footer{
+//    background-color: #fff;
+//    color: $gris;
+//    min-height: 5em;
+//    box-shadow: 0 -5px 5px -5px $gris;
+//}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+}
+
+.img-wrapper:hover{
+    &:hover{
+        img{
+            transform:scale(1.2);
+            transition: all .6s ease;
+        }
+    }
+}
+
+.fa-user{
+    font-weight: bold;
+}
+
+.dropdown-item:hover{
+    background-color: $color-2;
+    color: #fff;
 }

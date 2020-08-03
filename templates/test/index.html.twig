@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestfiltreController!{% endblock %}
+{% block body %}
+<div class="container py-5">
+
+        <section class="top-catagory-area mt-3">
+            <div class="container">
+                <div class="row">
+                    <!-- Top Catagory Area -->
+                    {% for recipe in recipes %}
+                    {% include "elements/_cards.html.twig" %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

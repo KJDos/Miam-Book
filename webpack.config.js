@@ -26,6 +26,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('cropper', './assets/js/cropper.js')
     .addEntry('handleCollections', './assets/js/handleCollections.js')
+    .addEntry('custom-scrollreveal', './assets/js/custom-scrollreveal.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

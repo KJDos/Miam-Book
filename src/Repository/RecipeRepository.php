@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Recipe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * @method Recipe|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +20,16 @@ class RecipeRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipe::class);
     }
 
+    public function afficherCategory($category)
+    {
+        return $this->createQueryBuilder('r')
+        ->andWhere('r.category = :val')
+        ->setParameter('val', $category)
+            ->orderBy('r.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Recipe[] Returns an array of Recipe objects
     //  */
