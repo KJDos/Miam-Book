@@ -55,7 +55,12 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
+
+            $this->addFlash('success', 'Votre compte a été créé, vous pouvez vous connecter.');
+            return $this->redirectToRoute('app_login');
         }
+
+
 
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView(),

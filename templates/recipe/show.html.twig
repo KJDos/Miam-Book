@@ -3,7 +3,20 @@
 {% block title %}Recipe{% endblock %}
 
 {% block body %}
+
+
+
 <div class="container py-5">
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
     <img class="img-fluid main-img" src="/images/cover/{{recipe.imageName}}" alt="{{recipe.name}}">
     <h1 class="text-center font-dancing display-3 my-5">{{recipe.name}}</h1>
 
@@ -47,7 +60,7 @@
                     <div class="col text-center">
                         <i class="far fa-user"></i>
                         Auteur <br>
-                        {{recipe.author.pseudo}}
+                        <a class="link" href="{{path("user_show", {'slug': recipe.author.slug})}}">{{recipe.author.pseudo}}</a>
                     </div>
                 </div>
             </fieldset>

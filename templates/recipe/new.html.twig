@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'recipe/_collection.html.twig' %}
+{% form_theme form with [
+    'recipe/_collection.html.twig',
+    'bootstrap_4_layout.html.twig'
+] %}
 
 {% block title %}Nouvelle recette{% endblock %}
 
 {% block body %}
     {{ include('recipe/_form.html.twig') }}
     <hr>
-    <a href="{{ path('recipe_index') }}">back to list</a>
 {% endblock %}
 
 {% block javascripts %}

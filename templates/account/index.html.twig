@@ -3,5 +3,25 @@
 {% block title %}Hello AccountController!{% endblock %}
 
 {% block body %}
-// page user see profile
+    <div class="container mt-5">
+        <h2 class="text-center font-dancing display-2">{{user.pseudo}}</h2>
+        {% set nbRecipes = user.recipes|length %}
+
+        {% if nbRecipes > 0 %}
+            <p>{{user.pseudo}} a écrit {{user.recipes|length}} recettes: </p>
+        {% else %}
+            <div class="alert alert-warning text-center d-flex">
+                <p class="m-auto">{{user.pseudo}} n'a écrit aucune recette.</p>
+            </div>
+        {% endif %}
+        
+
+        <div class="row">
+            
+            {% for recipe in user.recipes %}
+                {% include "elements/_cards.html.twig" %}
+            {% endfor %}
+        </div>
+
+    </div>
 {% endblock %}

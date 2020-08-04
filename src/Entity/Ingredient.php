@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\IngredientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\IngredientRepository;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Positive;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=IngredientRepository::class)
@@ -19,16 +23,25 @@ class Ingredient
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $quantity;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Choice({"", "g", "mL", "cL", "L", "pincée", "sachet", "cuillère à soupe", "cuillère à café"})
      */
     private $unit;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 155,
+     *      minMessage = "{{ limit }} caractères minimum",
+     *      maxMessage = "{{ limit }} caractères maximum",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 

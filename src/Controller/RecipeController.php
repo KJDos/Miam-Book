@@ -16,18 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class RecipeController extends AbstractController
 {
-    /**
-     * @Route("/", name="recipe_index", methods={"GET"})
-     */
-    public function index(RecipeRepository $recipeRepository): Response
-    {
-        return $this->render('recipe/index.html.twig', [
-            'recipes' => $recipeRepository->findAll(),
-        ]);
-    }
 
     /**
-     * @Route("/new", name="recipe_new", methods={"GET","POST"})
+     * @Route("/nouvelle", name="recipe_new", methods={"GET","POST"})
      * @Security("is_granted('ROLE_USER')")
      */
     public function new(Request $request): Response
@@ -54,7 +45,8 @@ class RecipeController extends AbstractController
             $entityManager->persist($recipe);
             $entityManager->flush();
 
-            return $this->redirectToRoute('recipe_index');
+            $this->addFlash('success', 'La recette a été crée.');
+            return $this->redirectToRoute('recipe_show', ['slug' => $recipe->getSlug()]);
         }
 
         return $this->render('recipe/new.html.twig', [
@@ -98,7 +90,9 @@ class RecipeController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('recipe_index');
+            $this->addFlash('success', 'La recette a été modifiée.');
+
+            return $this->redirectToRoute('recipe_show', ['slug' => $recipe->getSlug()]);
         }
 
         return $this->render('recipe/edit.html.twig', [

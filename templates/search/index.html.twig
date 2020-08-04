@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+
+<h2 class="text-center display-2 font-dancing">Rechercher</h2>
+
+<div class="form-group">
+    {% form_theme searchForm 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(searchForm) }}
+    {{ form_row(searchForm.name, {'label': " ", 'attr': {'placeholder': 'mot-clé...'}}) }}
+    <button class="btn delicious-btn mb-3">rechercher</button>
+    {{ form_end(searchForm) }}
+
+<hr>
+    <div class="row pt-3">
+        {% for recipe in recipes %}
+            {% include "elements/_cards.html.twig" %}
+        {% endfor %}
+    </div>
+
+</div><!--container-->
+{% endblock %}

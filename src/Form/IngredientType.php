@@ -25,8 +25,13 @@ class IngredientType extends ApplicationType
                     [
                         '(vide)' => '',
                         'g' => 'g',
-                        'kg' => 'kg',
-                        '...' => '...'
+                        'mL' => 'mL',
+                        'cL' => 'cL',
+                        'L' => 'L',
+                        'pincée' => 'pincée',
+                        'sachet' => 'sachet',
+                        'cuillère à soupe' => 'cuillère à soupe',
+                        'cueillère à café' => 'cueillère à café'
                     ]
                 ]
             )

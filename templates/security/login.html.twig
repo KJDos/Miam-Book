@@ -1,9 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container mt-5">
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h2 class="text-center display-2 font-dancing">Connexion</h2>
+
     <form method="post">
         {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -38,9 +49,7 @@
             </div>
         #}
         
-        <button class="btn delicious-btn" type="submit">
-            Sign in
-        </button>
+        <button type="submit" class="btn delicious-btn col-12 mt-5">Se connecter</button>
     </form>
 </div>
 

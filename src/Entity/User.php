@@ -10,11 +10,22 @@ use Doctrine\ORM\Mapping\PrePersist;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @HasLifecycleCallbacks
+ * @UniqueEntity(
+ *      fields={"email"},
+ *      message="Cet email existe déjà."
+ * )
+ * @UniqueEntity(
+ *      fields={"pseudo"},
+ *      message="Ce pseudo existe déjà."
+ * )
  */
 class User implements UserInterface
 {
@@ -27,6 +38,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' n'est pas valide"
+     * )
+     * 
      */
     private $email;
 
@@ -38,11 +53,25 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     *      minMessage = "{{ limit }} caractères minimum",
+     *      maxMessage = "{{ limit }} caractères maximum",
+     *      allowEmptyString = false
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 40,
+     *      minMessage = "{{ limit }} caractères minimum",
+     *      maxMessage = "{{ limit }} caractères maximum",
+     *      allowEmptyString = false
+     * )
      */
     private $pseudo;
 

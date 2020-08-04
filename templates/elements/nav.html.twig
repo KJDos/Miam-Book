@@ -12,28 +12,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link cool-link" href="#">Accueil</a>
+            </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Catégories
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Entrée</a>
-                    <a class="dropdown-item" href="#">Plat</a>
-                    <a class="dropdown-item" href="#">Dessert</a>
+                <div class="dropdown-menu row" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{path('testfiltre', {category : 'entree'})}}">Entrée</a>
+                    <a class="dropdown-item" href="{{path('testfiltre', {category : 'plat'})}}">Plat</a>
+                    <a class="dropdown-item" href="{{path('testfiltre', {category : 'dessert'})}}">Dessert</a>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link cool-link" href="{{path('recipe_new')}}">Nouvelle recette</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link cool-link" href="#">Nouvelle recette</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link cool-link" href="#">Nouvelle recette</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link cool-link" href="#">Nouvelle recette</a>
+                <a class="nav-link cool-link" href="{{path('search')}}">Rechercher</a>
             </li>
 
         </ul>
@@ -67,7 +65,6 @@
         </ul>
     </div>
 </nav>
-
 
 {#}
 

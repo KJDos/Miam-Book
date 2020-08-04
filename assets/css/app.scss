@@ -585,3 +585,19 @@ input[type=email]:focus
     background-color: $color-2;
     color: #fff;
 }
+
+.link{
+    color: $color-1;
+    font-weight: bold;
+    &:visited{
+        color: $color-1;
+    }
+    &:hover{
+        color: $color-2;
+    }
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}

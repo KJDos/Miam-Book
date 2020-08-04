@@ -47,7 +47,7 @@ class RecipeType extends ApplicationType
                     [
                         'Entrée' => 'Entrée',
                         'Plat' => 'Plat',
-                        'Dessert' => 'Dessert'
+                        'Déssert' => 'Déssert'
                     ]
                 ]
             )

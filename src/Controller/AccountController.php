@@ -16,7 +16,7 @@ class AccountController extends AbstractController
     public function show(User $user): Response
     {
         return $this->render('account/index.html.twig', [
-            'recipe' => $user,
+            'user' => $user,
         ]);
     }
 }

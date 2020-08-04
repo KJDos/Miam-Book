@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\StepRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\StepRepository;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StepRepository::class)
@@ -19,6 +21,13 @@ class Step
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 355,
+     *      minMessage = "{{ limit }} caractères minimum",
+     *      maxMessage = "{{ limit }} caractères maximum",
+     *      allowEmptyString = false
+     * )
      */
     private $instruction;
 

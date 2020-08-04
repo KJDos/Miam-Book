@@ -11,12 +11,23 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\Time;
+use Symfony\Component\Validator\Constraints\Type;
+use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Validator\Constraints\Length;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
  * @Vich\Uploadable
  * @HasLifecycleCallbacks
+ * @UniqueEntity(
+ *      fields={"name"},
+ *      message="Une recette porte déjà ce nom... Choisissez un nom original pour cette recette !"
+ * )
  */
 class Recipe
 {
@@ -29,6 +40,13 @@ class Recipe
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 155,
+     *      minMessage = "{{ limit }} caractères minimum",
+     *      maxMessage = "{{ limit }} caractères maximum",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 
@@ -68,16 +86,19 @@ class Recipe
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Choice({"Entrée", "Plat", "Déssert"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recipe", orphanRemoval=true)
+     * @Assert\Valid()
      */
     private $ingredients;
 
     /**
      * @ORM\OneToMany(targetEntity=Step::class, mappedBy="recipe", orphanRemoval=true)
+     * @Assert\Valid()
      */
     private $steps;
 
@@ -89,16 +110,19 @@ class Recipe
 
     /**
      * @ORM\Column(type="time")
+     * @Assert\Type("\DateTimeInterface")
      */
     private $preparationTime;
 
     /**
      * @ORM\Column(type="time", nullable=true)
+     * @Assert\Type("\DateTimeInterface")
      */
     private $cookingTime;
 
     /**
      * @ORM\Column(type="time", nullable=true)
+     * @Assert\Type("\DateTimeInterface")
      */
     private $restTime;
 
